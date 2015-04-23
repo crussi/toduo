@@ -2,24 +2,30 @@
   <div id="container" class="{{menuOpen}} {{cordova}}">
     <div id="logo"><div>Toduo</div></div>
     <section id="menu">
-
-
-      <div class="list-todos">
-        <a class="js-new-list link-list-new"><span class="icon-plus"></span>New List</a>
-
-        {{#each lists}}
-          <a href="{{pathFor 'listsShow'}}" class="list-todo {{activeListClass}}" title="{{name}}">
-            {{#if userId}}
-              <span class="icon-lock"></span>
-            {{/if}}
-            {{#if incompleteCount}}
-              <span class="count-list">{{incompleteCount}}</span>
-            {{/if}}
-            {{name}}
+        <div class="list-todos">
+          <a class="list-todo" data-toggle="collapse" href="#collapseExample" title="Custom lists">
+              Custom lists
           </a>
-        {{/each}}
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="list-todos">
+                <a class="js-new-list link-list-new sub-menu"><span class="icon-plus"></span>New List</a>
 
-      </div>
+              {{#each lists}}
+                  <a href="{{pathFor 'listsShow'}}" class="list-todo {{activeListClass}} sub-menu" title="{{name}}">
+                    {{#if userId}}
+                        <span class="icon-lock"></span>
+                    {{/if}}
+                    {{#if incompleteCount}}
+                        <span class="count-list">{{incompleteCount}}</span>
+                    {{/if}}
+                    {{name}}
+                  </a>
+              {{/each}}
+
+            </div>
+        </div>
+
 
       {{#if currentUser}}
           <div class="btns-group-vertical">
