@@ -1,13 +1,71 @@
 <template name="appBody">
   <div id="container" class="{{menuOpen}} {{cordova}}">
-    <div id="logo"><div>Toduo</div></div>
-    <section id="menu">
-        <div class="list-todos">
-          <a class="list-todo" data-toggle="collapse" href="#collapseExample" title="Custom lists">
-              Custom lists
-          </a>
+    <nav class="main-nav navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Toduo</a>
+            </div>
+      {{#if currentUser}}
+          <ul class="nav nav-pills navbar-right">
+              <li><a href="#" class="js-logout">Logout</a></li>
+          </ul>
+      {{else}}
+          <ul class="nav nav-pills navbar-right">
+              <li><a href="{{pathFor 'signin'}}">Sign In</a></li>
+              <li><a href="{{pathFor 'join'}}">Join</a></li>
+          </ul>
+      {{/if}}
         </div>
-        <div class="collapse" id="collapseExample">
+    </nav>
+    {{#if currentUser}}
+    <section id="menu">
+
+        <div class="list-todos">
+            <a class="list-todo" href="#" title="Input">
+                Input
+            </a>
+            <a class="list-todo" href="#" title="Today">
+                Today
+            </a>
+            <a class="list-todo" href="#" title="This week">
+                This week
+            </a>
+            <a class="list-todo" href="#" title="Next">
+                Next
+            </a>
+            <a class="list-todo" href="#" title="Waiting">
+                Waiting
+            </a>
+            <a class="list-todo" href="#" title="Scheduled">
+                Scheduled
+            </a>
+            <a class="list-todo" href="#" title="Someday">
+              Someday
+            </a>
+            <a class="list-todo" href="#" title="Projects">
+                Projects
+            </a>
+
+            <a class="list-todo" href="#" title="Review">
+                Review
+            </a>
+            <a class="list-todo" data-toggle="collapse" href="#collapseOther" title="Other">
+                Other
+            </a>
+            <div class="collapse" id="collapseOther">
+                <div class="list-todos">
+                    <a class="list-todo sub-menu" title="Reference">Reference</a>
+                    <a class="list-todo sub-menu" title="Archive">Archive</a>
+                    <a class="list-todo sub-menu" title="Trash">Trash</a>
+                    <a class="list-todo sub-menu" title="Areas">Areas</a>
+                    <a class="list-todo sub-menu" title="Contexts">Contexts</a>
+                </div>
+            </div>
+            <a class="list-todo" data-toggle="collapse" href="#collapseCustom" title="Custom lists">
+              Custom lists
+            </a>
+        </div>
+        <div class="collapse" id="collapseCustom">
             <div class="list-todos">
                 <a class="js-new-list link-list-new sub-menu"><span class="icon-plus"></span>New List</a>
 
@@ -27,27 +85,30 @@
         </div>
 
 
-      {{#if currentUser}}
-          <div class="btns-group-vertical">
-              <a href="#" class="js-user-menu btn-secondary">
-                {{#if userMenuOpen}}
-                    <span class="icon-arrow-up"></span>
-                {{else}}
-                    <span class="icon-arrow-down"></span>
-                {{/if}}
-                {{emailLocalPart}}
-              </a>
-            {{#if userMenuOpen}}
-                <a class="js-logout btn-secondary">Logout</a>
-            {{/if}}
-          </div>
-      {{else}}
-          <div class="btns-group">
-              <a href="{{pathFor 'signin'}}" class="btn-secondary">Sign In</a>
-              <a href="{{pathFor 'join'}}" class="btn-secondary">Join</a>
-          </div>
-      {{/if}}
+      <!--{{#if currentUser}}-->
+          <!--<div class="btns-group-vertical">-->
+              <!--<a href="#" class="js-user-menu btn-secondary">-->
+                <!--{{#if userMenuOpen}}-->
+                    <!--<span class="icon-arrow-up"></span>-->
+                <!--{{else}}-->
+                    <!--<span class="icon-arrow-down"></span>-->
+                <!--{{/if}}-->
+                <!--{{emailLocalPart}}-->
+              <!--</a>-->
+            <!--{{#if userMenuOpen}}-->
+                <!--<a class="js-logout btn-secondary">Logout</a>-->
+            <!--{{/if}}-->
+          <!--</div>-->
+      <!--ç-->
+          <!--<div class="btns-group">-->
+              <!--<a href="{{pathFor 'signin'}}" class="btn-secondary">Sign In</a>-->
+              <!--<a href="{{pathFor 'join'}}" class="btn-secondary">Join</a>-->
+          <!--</div>-->
+      <!--{{/if}}-->
     </section>
+    {{else}}
+
+    {{/if}}
 
     {{#unless connected}}
       <div class="notifications">
@@ -63,7 +124,7 @@
 
     <div class="content-overlay"></div>
 
-    <div id="content-container">
+    <div id="content-container" class="{{hideMenu}}">
       {{#each thisArray}}
         {{> yield}}
       {{/each}}

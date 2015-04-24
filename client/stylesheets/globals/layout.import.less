@@ -11,6 +11,7 @@ body {
 }
 
 #container {
+  margin-top: 5px;
   .position(absolute, 0, 0, 0, 0);
 
   @media screen and (min-width: 60em) {
@@ -28,23 +29,33 @@ body {
 }
 
 #menu {
-  .position(absolute, 0, 0, 0, 0, @menu-width);
+  .menu-show {
+    .position(absolute, 0, 0, 0, 0, @menu-width);
+  }
+  .menu-hide {
+    .position(absolute, 0, 0, 0, 0, 0);
+  }
 }
 
 #content-container {
-  .position(absolute, 0, 0, 0, 0);
+  .position(absolute, 5em, 0, 0, 0);
   .transition(all 200ms ease-out);
   .transform(translate3d(0, 0, 0));
 //  background: @color-tertiary;
   background: @color-empty;
   opacity: 1;
 
-  @media screen and (min-width: 40em) {
-    left: @menu-width;
-  }
+    @media screen and (min-width: 40em) {
+      &.menu-show {
+        left: @menu-width;
+      }
+      &.menu-hide {
+        left: 0;
+      }
+    }
 
   .content-scrollable {
-    .position(absolute, 0, 0, 0, 0);
+    .position(absolute, 5em, 0, 0, 0);
     .transform(translate3d(0, 0, 0));
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;

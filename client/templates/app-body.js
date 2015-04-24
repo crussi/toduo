@@ -61,6 +61,13 @@ Template.appBody.helpers({
   menuOpen: function() {
     return Session.get(MENU_KEY) && 'menu-open';
   },
+  hideMenu: function() {
+    if (Meteor.user()) {
+      return 'menu-show';
+    } else {
+      return 'menu-hide';
+    }
+  },
   cordova: function() {
     return Meteor.isCordova && 'cordova';
   },
@@ -109,14 +116,24 @@ Template.appBody.events({
     Session.set(MENU_KEY, false);
   },
 
+  //'click .js-logout': function() {
+  //  Meteor.logout();
+  //
+  //  // if we are on a private list, we'll need to go to a public one
+  //  var current = Router.current();
+  //  if (current.route.name === 'listsShow' && current.data().userId) {
+  //    Router.go('listsShow', Lists.findOne({userId: {$exists: false}}));
+  //  }
+  //},
   'click .js-logout': function() {
     Meteor.logout();
-    
+
     // if we are on a private list, we'll need to go to a public one
-    var current = Router.current();
-    if (current.route.name === 'listsShow' && current.data().userId) {
-      Router.go('listsShow', Lists.findOne({userId: {$exists: false}}));
-    }
+    //var current = Router.current();
+    //if (current.route.name === 'listsShow' && current.data().userId) {
+    //  Router.go('listsShow', Lists.findOne({userId: {$exists: false}}));
+    //}
+    Router.go('signin');
   },
 
   'click .js-new-list': function() {

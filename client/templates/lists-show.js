@@ -171,5 +171,6 @@ Template.listsShow.events({
     });
     Lists.update(this._id, {$inc: {incompleteCount: 1}});
     $input.val('');
-  }
+  },
+
 });
