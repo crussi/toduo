@@ -64,50 +64,26 @@
             <a class="list-todo" data-toggle="collapse" href="#collapseCustom" title="Custom lists">
               Custom lists
             </a>
-        </div>
-        <div class="collapse" id="collapseCustom">
-            <div class="list-todos">
-                <a class="js-new-list link-list-new sub-menu"><span class="icon-plus"></span>New List</a>
+            <div class="collapse" id="collapseCustom">
+                <div class="list-todos">
+                    <a class="js-new-list link-list-new sub-menu"><span class="icon-plus"></span>New List</a>
 
-              {{#each lists}}
-                  <a href="{{pathFor 'listsShow'}}" class="list-todo {{activeListClass}} sub-menu" title="{{name}}">
-                    {{#if userId}}
-                        <span class="icon-lock"></span>
-                    {{/if}}
-                    {{#if incompleteCount}}
-                        <span class="count-list">{{incompleteCount}}</span>
-                    {{/if}}
-                    {{name}}
-                  </a>
-              {{/each}}
+                    {{#each lists}}
+                        <a href="{{pathFor 'listsShow'}}" class="list-todo {{activeListClass}} sub-menu" title="{{name}}">
+                            {{#if userId}}
+                                <span class="icon-lock"></span>
+                            {{/if}}
+                            {{#if incompleteCount}}
+                                <span class="count-list">{{incompleteCount}}</span>
+                            {{/if}}
+                            {{name}}
+                        </a>
+                    {{/each}}
 
+                </div>
             </div>
         </div>
-
-
-      <!--{{#if currentUser}}-->
-          <!--<div class="btns-group-vertical">-->
-              <!--<a href="#" class="js-user-menu btn-secondary">-->
-                <!--{{#if userMenuOpen}}-->
-                    <!--<span class="icon-arrow-up"></span>-->
-                <!--{{else}}-->
-                    <!--<span class="icon-arrow-down"></span>-->
-                <!--{{/if}}-->
-                <!--{{emailLocalPart}}-->
-              <!--</a>-->
-            <!--{{#if userMenuOpen}}-->
-                <!--<a class="js-logout btn-secondary">Logout</a>-->
-            <!--{{/if}}-->
-          <!--</div>-->
-      <!--ç-->
-          <!--<div class="btns-group">-->
-              <!--<a href="{{pathFor 'signin'}}" class="btn-secondary">Sign In</a>-->
-              <!--<a href="{{pathFor 'join'}}" class="btn-secondary">Join</a>-->
-          <!--</div>-->
-      <!--{{/if}}-->
     </section>
-    {{else}}
-
     {{/if}}
 
     {{#unless connected}}

@@ -15,3 +15,12 @@ Meteor.publish('todos', function(listId) {
 
   return Todos.find({listId: listId});
 });
+
+Meteor.publish('todos2', function() {
+  check(listId, String);
+
+  return Todos.find({listId: listId});ß
+
+  //return Inbox.find({userId: this.userId()});
+  //return Inbox.find({userId: 'GTMXs9Xjwfs6NBA7t'});
+});
