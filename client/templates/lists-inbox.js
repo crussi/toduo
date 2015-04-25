@@ -37,11 +37,11 @@ Template.inboxShow.helpers({
         return Session.get(EDITING_KEY);
     },
 
-    todosReady: function() {
+    inboxReady: function() {
         return Router.current().todosHandle.ready();
     },
 
-    todos: function(listId) {
+    inboxitems: function(listId) {
         return Todos.find({listId: listId}, {sort: {createdAt : -1}});
     }
 });
