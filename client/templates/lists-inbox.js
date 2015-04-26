@@ -38,7 +38,7 @@ Template.inboxShow.helpers({
     },
 
     inboxReady: function() {
-        return Router.current().todosHandle.ready();
+        return Router.current().inboxHandle.ready();
     },
 
     inboxitems: function(listId) {
