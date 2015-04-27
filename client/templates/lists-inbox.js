@@ -33,9 +33,9 @@ Template.inboxShow.onRendered(function() {
 });
 
 Template.inboxShow.helpers({
-    editing: function() {
-        return Session.get(EDITING_KEY);
-    },
+    //editing: function() {
+    //    return Session.get(EDITING_KEY);
+    //},
 
     inboxReady: function() {
         return Router.current().inboxHandle.ready();
