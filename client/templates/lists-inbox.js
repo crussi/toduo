@@ -36,15 +36,18 @@ Template.inboxShow.helpers({
     //editing: function() {
     //    return Session.get(EDITING_KEY);
     //},
+    incompleteCount: function() {
+        return 5;
+    },
 
     inboxReady: function() {
         return Router.current().inboxHandle.ready();
     },
 
-    inboxitems: function(listId) {
+    inboxitems: function(userId) {
         //Problem is here ...
 
-        return Inbox.find({listId: listId}, {sort: {createdAt : -1}});
+        return Inbox.find({userId: userId}, {sort: {dateCreated : -1}});
     }
 });
 
