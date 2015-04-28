@@ -44,10 +44,15 @@
       text-decoration: line-through;
     }
 
-    .delete-item { display: inline-block; }
+//    .delete-item { display: inline-block; }
   }
 
   // Editing
   .delete-item { display: none; }
   &.editing .delete-item { display: inline-block; }
+}
+
+a.delete-item:hover,
+a.delete-item:active {
+  display: inline-block;
 }

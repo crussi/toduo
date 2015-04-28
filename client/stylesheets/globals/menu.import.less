@@ -12,10 +12,12 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   top: 5em;
+  max-width: @menu-width;
   .btns-group,
   .btns-group-vertical {
     margin: 2em auto 2em;
     width: 80%;
+
 
     .btn-secondary {
       .font-s1;
@@ -55,9 +57,10 @@
 //      box-shadow: #E0E0E0 0 1px 0 0;
       display: block;
       line-height: 1.5em;
-      padding: .5em 2.5em;
+      padding: .3em 2em;
       position: relative;
       text-decoration: none;
+      max-width: @menu-width;
       &.sub-menu {
         margin-left: .75em;
       }
