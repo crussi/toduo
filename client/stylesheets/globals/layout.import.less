@@ -29,11 +29,18 @@ body {
 }
 
 #menu {
-  .menu-show {
-    .position(absolute, 0, 0, 0, 0, @menu-width);
-  }
-  .menu-hide {
-    .position(absolute, 0, 0, 0, 0, 0);
+//  .menu-show {
+//    .position(absolute, 0, 0, 0, 0, @menu-width);
+//  }
+//  .menu-hide {
+//    .position(absolute, 0, 0, 0, 0, 0);
+//  }
+
+  .content-scrollable {
+    .position(absolute, 2.5em, 0, 0, 0);
+    .transform(translate3d(0, 0, 0));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 

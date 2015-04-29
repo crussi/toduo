@@ -126,6 +126,8 @@ Template.appBody.events({
     var name = event.toElement.name;
     var i = template.$('#' + name + '-more');
     var a = template.$('[name="' + name +'"]');
+    var parent_name = '';
+
     if (i.hasClass('md-expand-more')) {
       i.removeClass('md-expand-more').addClass('md-expand-less');
     } else {
@@ -133,6 +135,11 @@ Template.appBody.events({
     }
     if (!a.hasClass('active')) {
       template.$('.list-todo').removeClass('active');
+      if (a.hasClass('sub-menu')) {
+        //template.$('.sub-menu').removeClass('active');
+        parent_name = a.data('parent');
+        template.$('[name="' + parent_name +'"]').addClass('active');
+      }
       a.addClass('active');
     }
   },

@@ -20,7 +20,7 @@
     {{#if currentUser}}
     <section id="menu">
 
-        <div class="list-todos">
+        <div class="list-todos content-scrollable">
             <a class="list-todo" href="#" name="inbox" title="Inbox">
                 Inbox
             </a>
@@ -47,11 +47,11 @@
             </a>
             <div class="collapse" id="collapseProjects">
                 <div class="list-todos">
-                    <a class="list-todo sub-menu" title="Project 1">Project 1</a>
-                    <a class="list-todo sub-menu" title="Project 2">Project 2</a>
-                    <a class="list-todo sub-menu" title="Project 3">Project 3</a>
-                    <a class="list-todo sub-menu" title="Project 4">Project 4</a>
-                    <a class="list-todo sub-menu" title="Project 5">Project 5</a>
+                    <a class="list-todo sub-menu" data-parent="projects" name="project 1" title="Project 1">Project 1</a>
+                    <a class="list-todo sub-menu" data-parent="projects" name="project 2" title="Project 2">Project 2</a>
+                    <a class="list-todo sub-menu" data-parent="projects" name="project 3" title="Project 3">Project 3</a>
+                    <a class="list-todo sub-menu" data-parent="projects" name="project 4" title="Project 4">Project 4</a>
+                    <a class="list-todo sub-menu" data-parent="projects" name="project 5" title="Project 5">Project 5</a>
                 </div>
             </div>
             <a class="list-todo" href="#" name="review" title="Review">
@@ -62,11 +62,11 @@
             </a>
             <div class="collapse" id="collapseOther">
                 <div class="list-todos">
-                    <a class="list-todo sub-menu" title="Reference">Reference</a>
-                    <a class="list-todo sub-menu" title="Archive">Archive</a>
-                    <a class="list-todo sub-menu" title="Trash">Trash</a>
-                    <a class="list-todo sub-menu" title="Areas">Areas</a>
-                    <a class="list-todo sub-menu" title="Contexts">Contexts</a>
+                    <a class="list-todo sub-menu" data-parent="other" name="Reference" title="Reference">Reference</a>
+                    <a class="list-todo sub-menu" data-parent="other" name="Archive" title="Archive">Archive</a>
+                    <a class="list-todo sub-menu" data-parent="other" name="Trash" title="Trash">Trash</a>
+                    <a class="list-todo sub-menu" data-parent="other" name="Areas" title="Areas">Areas</a>
+                    <a class="list-todo sub-menu" data-parent="other" name="Contexts" title="Contexts">Contexts</a>
                 </div>
             </div>
             <a class="list-todo" data-toggle="collapse" href="#collapseCustom" name="custom" title="Custom lists">
@@ -77,7 +77,7 @@
                     <a class="js-new-list link-list-new sub-menu"><span class="icon-plus"></span>New List</a>
 
                     {{#each lists}}
-                        <a href="{{pathFor 'listsShow'}}" class="list-todo sub-menu" title="{{name}}">
+                        <a href="{{pathFor 'listsShow'}}" class="list-todo sub-menu" data-parent="custom" name="{{name}}"  title="{{name}}">
                             {{#if userId}}
                                 <span class="icon-lock"></span>
                             {{/if}}
