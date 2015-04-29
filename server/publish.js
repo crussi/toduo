@@ -16,7 +16,7 @@ Meteor.publish('todos', function(listId) {
   return Todos.find({listId: listId});
 });
 
-Meteor.publish('todos2', function(userId) {
+Meteor.publish('inbox', function(userId) {
   check(userId, String);
 
   return Inbox.find({userId: userId});

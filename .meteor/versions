@@ -27,6 +27,7 @@ iron:core@0.3.4
 iron:dynamic-template@0.4.1
 iron:layout@0.4.1
 iron:router@0.9.4
+ixdi:material-design-iconic-font@1.1.1
 jquery@1.11.3_2
 json@1.0.3
 lai:collection-extensions@0.1.3

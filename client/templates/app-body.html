@@ -21,36 +21,44 @@
     <section id="menu">
 
         <div class="list-todos">
-            <a class="list-todo" href="#" title="Input">
-                Input
+            <a class="list-todo {{activeListClass "inbox"}}" href="#" title="Inbox">
+                Inbox
             </a>
-            <a class="list-todo" href="#" title="Today">
+            <a class="list-todo {{activeListClass "today"}}" href="#" title="Today">
                 Today
             </a>
-            <a class="list-todo" href="#" title="This week">
+            <a class="list-todo {{activeListClass "thisweek"}}" href="#" title="This week">
                 This week
             </a>
-            <a class="list-todo" href="#" title="Next">
+            <a class="list-todo {{activeListClass "next"}}" href="#" title="Next">
                 Next
             </a>
-            <a class="list-todo" href="#" title="Waiting">
+            <a class="list-todo {{activeListClass "waiting"}}" href="#" title="Waiting">
                 Waiting
             </a>
-            <a class="list-todo" href="#" title="Scheduled">
+            <a class="list-todo {{activeListClass "scheduled"}}" href="#" title="Scheduled">
                 Scheduled
             </a>
-            <a class="list-todo" href="#" title="Someday">
+            <a class="list-todo {{activeListClass "someday"}}" href="#" title="Someday">
               Someday
             </a>
-            <a class="list-todo" href="#" title="Projects">
-                Projects
+            <a class="list-todo {{activeListClass "projects"}}" data-toggle="collapse" href="#collapseProjects" name="projects" title="Projects">
+                Projects<i id="projects-more" class="md-expand-more md-icon-right"></i>
             </a>
-
-            <a class="list-todo" href="#" title="Review">
-                Review
+            <div class="collapse" id="collapseProjects">
+                <div class="list-todos">
+                    <a class="list-todo sub-menu" title="Project 1">Project 1</a>
+                    <a class="list-todo sub-menu" title="Project 2">Project 2</a>
+                    <a class="list-todo sub-menu" title="Project 3">Project 3</a>
+                    <a class="list-todo sub-menu" title="Project 4">Project 4</a>
+                    <a class="list-todo sub-menu" title="Project 5">Project 5</a>
+                </div>
+            </div>
+            <a class="list-todo {{activeListClass "review"}}" href="#" title="Review">
+                Review<i class="{{collapseIcon}} md-icon-right"></i>
             </a>
-            <a class="list-todo" data-toggle="collapse" href="#collapseOther" title="Other">
-                Other
+            <a class="list-todo {{activeListClass "other"}}" data-toggle="collapse" href="#collapseOther" title="Other">
+                Other<i class="{{collapseIcon}} md-icon-right"></i>
             </a>
             <div class="collapse" id="collapseOther">
                 <div class="list-todos">
@@ -61,7 +69,7 @@
                     <a class="list-todo sub-menu" title="Contexts">Contexts</a>
                 </div>
             </div>
-            <a class="list-todo" data-toggle="collapse" href="#collapseCustom" title="Custom lists">
+            <a class="list-todo {{activeListClass "custom"}}" data-toggle="collapse" href="#collapseCustom" title="Custom lists">
               Custom lists
             </a>
             <div class="collapse" id="collapseCustom">

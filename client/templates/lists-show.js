@@ -12,7 +12,9 @@ Template.listsShow.onRendered(function() {
     listFadeInHold = LaunchScreen.hold();
 
     // Handle for launch screen defined in app-body.js
-    listRenderHold.release();
+    if (listFadeInHold !== null) {
+      listRenderHold.release();
+    }
 
     firstRender = false;
   }

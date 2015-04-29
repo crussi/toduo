@@ -9,6 +9,7 @@ Session.setDefault(SHOW_CONNECTION_ISSUE_KEY, false);
 
 var CONNECTION_ISSUE_TIMEOUT = 5000;
 
+
 Meteor.startup(function () {
   // set up a swipe left / right handler
   $(document.body).touchwipe({
@@ -39,7 +40,9 @@ Template.appBody.onRendered(function() {
         .hide()
         .insertBefore(next)
         .fadeIn(function () {
-          listFadeInHold.release();
+            if (listFadeInHold !== null) {
+                listFadeInHold.release();
+            }
         });
     },
     removeElement: function(node) {
@@ -81,11 +84,17 @@ Template.appBody.helpers({
   lists: function() {
     return Lists.find();
   },
-  activeListClass: function() {
+  activeListClass: function(listname) {
+
     var current = Router.current();
-    if (current.route.name === 'listsShow' && current.params._id === this._id) {
+    if (current.route.name === 'inboxShow' && listname === 'inbox') {
+      return 'active';
+    }  else if (current.route.name === 'listsShow' && current.params._id === this._id) {
       return 'active';
     }
+  },
+  collapseIcon: function() {
+    return "md-expand-more";
   },
   connected: function() {
     if (Session.get(SHOW_CONNECTION_ISSUE_KEY)) {
@@ -112,8 +121,16 @@ Template.appBody.events({
     event.stopImmediatePropagation();
   },
 
-  'click #menu a': function() {
+  'click #menu a': function(event, template) {
     Session.set(MENU_KEY, false);
+    var name = event.toElement.name;
+    var el = template.$('#' + name + '-more');
+    if (el.hasClass('md-expand-more')) {
+      el.removeClass('md-expand-more').addClass('md-expand-less');
+    } else {
+      el.removeClass('md-expand-less').addClass('md-expand-more');
+    }
+
   },
 
   //'click .js-logout': function() {
