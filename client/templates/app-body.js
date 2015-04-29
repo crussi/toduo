@@ -84,15 +84,15 @@ Template.appBody.helpers({
   lists: function() {
     return Lists.find();
   },
-  activeListClass: function(listname) {
-
-    var current = Router.current();
-    if (current.route.name === 'inboxShow' && listname === 'inbox') {
-      return 'active';
-    }  else if (current.route.name === 'listsShow' && current.params._id === this._id) {
-      return 'active';
-    }
-  },
+  //activeListClass: function(listname) {
+  //
+  //  var current = Router.current();
+  //  if (current.route.name === 'inboxShow' && listname === 'inbox') {
+  //    return 'active';
+  //  }  else if (current.route.name === 'listsShow' && current.params._id === this._id) {
+  //    return 'active';
+  //  }
+  //},
   collapseIcon: function() {
     return "md-expand-more";
   },
@@ -124,13 +124,17 @@ Template.appBody.events({
   'click #menu a': function(event, template) {
     Session.set(MENU_KEY, false);
     var name = event.toElement.name;
-    var el = template.$('#' + name + '-more');
-    if (el.hasClass('md-expand-more')) {
-      el.removeClass('md-expand-more').addClass('md-expand-less');
+    var i = template.$('#' + name + '-more');
+    var a = template.$('[name="' + name +'"]');
+    if (i.hasClass('md-expand-more')) {
+      i.removeClass('md-expand-more').addClass('md-expand-less');
     } else {
-      el.removeClass('md-expand-less').addClass('md-expand-more');
+      i.removeClass('md-expand-less').addClass('md-expand-more');
     }
-
+    if (!a.hasClass('active')) {
+      template.$('.list-todo').removeClass('active');
+      a.addClass('active');
+    }
   },
 
   //'click .js-logout': function() {
